@@ -9,7 +9,7 @@ podTemplate(podRetention: never(), label: label, containers : [
        def repo = checkout scm
        def gitCommit = repo.GIT_COMMIT
        def gitBranch = repo.GIT_BRANCH
-       def versionNumber = gitCommit.substring(0,10)
+       def commitHash = gitCommit.substring(0,10)
        stage('Run tests') {
             container("node"){
                 stage("Prepare and run tests"){
@@ -32,10 +32,10 @@ podTemplate(podRetention: never(), label: label, containers : [
                 sh """
                 ls -la
                 """
-                docker.withRegistry("https://tv2norge-docker-test-local.jfrog.io", "artifactory"){
-                    def imageName = "tv2norge-docker-test-local.jfrog.io/interaktiv-react-jenkins-demo:1.0.${versionNumber}-${gitBranch}"
+                docker.withRegistry("https://tv2norge-docker-test.jfrog.io", "artifactory"){
+                    def imageName = "tv2norge-docker-test.jfrog.io/interaktiv-react-jenkins-demo:1.0.${env.BUILD_NUMBER}-${gitBranch}-${commitHash}"
                     def builtImage = docker.build("${imageName}")   
-                    //builtImage.push()
+                    builtImage.push()
 
                     slackSend  baseUrl: "https://tv2sumo.slack.com/services/hooks/jenkins-ci/", channel: "#i2-deploy", color: "good", message: "${imageName} has been built, but not pushed", tokenCredentialId: "slack"
 
