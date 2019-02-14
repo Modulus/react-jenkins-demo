@@ -3,14 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-  "react": "^16.4.2",
-  "react-dom": "^16.4.2",
-  "react-scripts": "1.1.5"
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "^2.1.5"
   },
   "scripts": {
-  "start": "react-scripts start",
-  "build": "react-scripts build",
-  "test": "react-scripts test --env=jsdom",
-  "eject": "react-scripts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "CI=true react-scripts test --env=jsdom --testResultsProcessor=jest-junit",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "jest-junit": "^6.2.1"
   }
-  }
+}

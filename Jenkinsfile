@@ -14,14 +14,16 @@ podTemplate(podRetention: never(), label: label, containers : [
             container("node"){
                 stage("Prepare and run tests"){
                     sh """
-                    #npm cache verify  
-                    #npm install     
-                    ## Installing junit-report support
-                    #npm install --save-dev jest-junit
+                    npm cache verify  
+                    npm install     
+                    npm test
 
 
                     echo 'The tests for this repo does not work with reports..... Not my fault'
                     """
+                }
+                stage("Publish junit reports"){
+                    junit "junit.xml"
                 }
             }
         }
