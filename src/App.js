@@ -9,7 +9,7 @@ class App extends Component {
         <header style={{backgroundImage: `url(${logo})`}} className="App-header">
         </header>
         <p className="App-intro">
-          This project explains how to run a react application in docker.
+          Neimen dæven han steikje! Da funka jo!! :D
         </p>
       </div>
     );
