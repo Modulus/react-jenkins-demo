@@ -1,0 +1,30 @@
+{
+  "name": "continuous-test-code-coverage-guide",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.5"
+  },
+  "scripts": {
+    "start": "start",
+    "test": "jest --coverage --coverageDirectory=output/coverage/jest"
+  },
+  "jest": {
+    "coverageReporters": [
+      "text"
+    ],
+    "reporters": [
+      "default",
+      "jest-junit"
+    ]
+  },
+  "jest-junit": {
+    "output": "output/coverage/junit/junit.xml",
+    "usePathForSuiteName": "true"
+  },
+  "devDependencies": {
+    "jest-junit": "^6.2.1"
+  }
+}
