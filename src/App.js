@@ -6,10 +6,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header style={{backgroundImage: `url(${logo})`}} className="App-header">
+        <header style={{ backgroundImage: `url(${logo})` }} className="App-header">
         </header>
         <p className="App-intro">
           Neimen dæven han steikje! Da funka jo!! :D
+	  Då vart da lagt te noko attåt
         </p>
       </div>
     );
