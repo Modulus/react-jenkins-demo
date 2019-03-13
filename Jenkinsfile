@@ -36,7 +36,7 @@ podTemplate(podRetention: never(), label: label, containers : [
                     def builtImage = docker.build("${imageName}")   
                     builtImage.push()
 
-                    slackSend  baseUrl: "https://tv2sumo.slack.com/services/hooks/jenkins-ci/", channel: "#i2-deploy", color: "good", message: "${imageName} has been built, and pushed to artifactory", tokenCredentialId: "slack"
+                   // slackSend  baseUrl: "https://tv2sumo.slack.com/services/hooks/jenkins-ci/", channel: "#i2-deploy", color: "good", message: "${imageName} has been built, and pushed to artifactory", tokenCredentialId: "slack"
 
                 }
               
